@@ -3,9 +3,13 @@ import Banner from "../../components/Banner/Banner";
 import BannerBottom from "../../components/Banner/BannerBottom";
 import PopularProducts from "../../components/PopularProducts/PopularProducts";
 import Instagram from "../../components/Instagram/Instagram";
+import { useLoaderData } from "react-router-dom";
 
 
 const Home = () => {
+
+    const allCoffee = useLoaderData();
+
     return (
         <>
             <Helmet>
@@ -14,7 +18,7 @@ const Home = () => {
             <main className="my-28">
                 <Banner />
                 <BannerBottom />
-                <PopularProducts />
+                <PopularProducts allCoffee={allCoffee} />
                 <Instagram />
             </main>
         </>

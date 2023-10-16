@@ -4,18 +4,18 @@ import { Link } from 'react-router-dom';
 
 
 const Product = ({ product }) => {
-    const { img, title, chef, price } = product;
+    const { photo, name, chef, price } = product;
 
     return (
         <div className='bg-[#F5F4F188] flex gap-x-6 px-12 py-6 rounded-md'>
             <figure className='w-4/12'>
-                <img src={img} alt="" className='w-full' />
+                <img src={photo} alt={name} className='h-52' />
             </figure>
             <div className='flex items-center w-7/12'>
                 <div className='space-y-3'>
                     <p className='text-lg'>
                         <span className='font-semibold'>Name: </span>
-                        <span className='text-gray-500'>{title}</span>
+                        <span className='text-gray-500'>{name}</span>
                     </p>
                     <p className='text-lg'>
                         <span className='font-semibold'>Chef: </span>

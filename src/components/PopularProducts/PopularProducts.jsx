@@ -1,54 +1,11 @@
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import { TbMug } from "react-icons/tb";
 import Product from "./Product";
 import SectionHeader from "../SectionHeader/SectionHeader";
 
 
-const PopularProducts = () => {
-    const products = [
-        {
-            _id: 1,
-            img: "https://i.ibb.co/cchNzkF/1.png",
-            title: "Americano Coffee",
-            chef: "Mr. Matin Paul",
-            price: 890
-        },
-        {
-            _id: 2,
-            img: "https://i.ibb.co/jgRT4Ns/2.png",
-            title: "Black Coffee",
-            chef: "Mr. Nibra Sweden",
-            price: 799
-        },
-        {
-            _id: 3,
-            img: "https://i.ibb.co/cchNzkF/1.png",
-            title: "Americano Coffee",
-            chef: "Mr. Matin Paul",
-            price: 890
-        },
-        {
-            _id: 4,
-            img: "https://i.ibb.co/jgRT4Ns/2.png",
-            title: "Black Coffee",
-            chef: "Mr. Nibra Sweden",
-            price: 799
-        },
-        {
-            _id: 5,
-            img: "https://i.ibb.co/cchNzkF/1.png",
-            title: "Americano Coffee",
-            chef: "Mr. Matin Paul",
-            price: 890
-        },
-        {
-            _id: 6,
-            img: "https://i.ibb.co/jgRT4Ns/2.png",
-            title: "Black Coffee",
-            chef: "Mr. Nibra Sweden",
-            price: 799
-        },
-    ]
+const PopularProducts = ({ allCoffee }) => {
     return (
         <section className="relative">
             <img src="https://i.ibb.co/txGbs6f/4.png" alt="aside mug image" className="absolute left-0 top-20 w-80 -z-10" />
@@ -64,7 +21,7 @@ const PopularProducts = () => {
                 </div>
                 <div className="my-12 grid grid-cols-1 lg:grid-cols-2 gap-6 px-20">
                     {
-                        products.map(product => <Product
+                        allCoffee.map(product => <Product
                             key={product._id}
                             product={product} />)
                     }
@@ -73,5 +30,9 @@ const PopularProducts = () => {
         </section>
     );
 };
+
+PopularProducts.propTypes = {
+    allCoffee: PropTypes.array.isRequired
+}
 
 export default PopularProducts;
