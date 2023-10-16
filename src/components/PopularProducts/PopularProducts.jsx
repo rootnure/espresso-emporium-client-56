@@ -58,7 +58,7 @@ const PopularProducts = () => {
                     <SectionHeader
                         sectionTop="--- Sip & Savor ---"
                         sectionTitle="Our Popular Products" ></SectionHeader>
-                    <Link to="/" className="mt-4">
+                    <Link to="/addNew" className="mt-4">
                         <button className="flex items-center text-lg gap-2 px-4 py-1.5 border-2 border-[#242222] bg-[#E3B577] hover:bg-transparent text-white hover:text-[#242222] duration-200 rounded font-rancho [text-shadow:_2px_2px_6px_#242222EE]">Add Coffee <TbMug className="text-[#242222]"></TbMug></button>
                     </Link>
                 </div>

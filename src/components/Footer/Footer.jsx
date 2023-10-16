@@ -35,11 +35,11 @@ const Footer = () => {
                                     sectionTitle="Connect with Us" />
                             </div>
                             <form className="space-y-5 mt-8">
-                                <input className="w-full px-3 py-2" type="text" name="name" placeholder="Name" />
+                                <input className="w-full px-3 py-2 rounded hover:[box-shadow:_2px_2px_4px_#331A15BB,_-2px_-2px_4px_#331A15BB] duration-150" type="text" name="name" placeholder="Name" />
                                 <br />
-                                <input className="w-full px-3 py-2" type="email" name="email" placeholder="Email" />
+                                <input className="w-full px-3 py-2 rounded hover:[box-shadow:_2px_2px_4px_#331A15BB,_-2px_-2px_4px_#331A15BB] duration-150" type="email" name="email" placeholder="Email" />
                                 <br />
-                                <textarea className="w-full px-3 py-2" name="feedback" rows="4" placeholder="Message"></textarea>
+                                <textarea className="w-full px-3 py-2 rounded hover:[box-shadow:_2px_2px_4px_#331A15BB,_-2px_-2px_4px_#331A15BB] duration-150" name="feedback" rows="4" placeholder="Message"></textarea>
                                 <br />
                                 <button type="submit" className="px-6 py-1.5 border-2 hover:text-white border-[#331A15] hover:bg-[#331A15] duration-200 rounded-full font-semibold hover:font-normal font-rancho">Send Message</button>
                             </form>
