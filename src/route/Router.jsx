@@ -4,6 +4,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home";
 import AddNew from "../pages/AddNew/AddNew";
 import UpdateExisting from "../pages/UpdateExisting/UpdateExisting";
+import CoffeeDetails from "../pages/CoffeeDetails/CoffeeDetails";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
             {
                 path: "/updateExisting",
                 element: <UpdateExisting />,
+            },
+            {
+                path: "/coffeeDetails",
+                element: <CoffeeDetails />,
             },
         ]
     }

@@ -10,42 +10,42 @@ const PopularProducts = () => {
             _id: 1,
             img: "https://i.ibb.co/cchNzkF/1.png",
             title: "Americano Coffee",
-            author: "Mr. Matin Paul",
+            chef: "Mr. Matin Paul",
             price: 890
         },
         {
             _id: 2,
             img: "https://i.ibb.co/jgRT4Ns/2.png",
             title: "Black Coffee",
-            author: "Mr. Nibra Sweden",
+            chef: "Mr. Nibra Sweden",
             price: 799
         },
         {
             _id: 3,
             img: "https://i.ibb.co/cchNzkF/1.png",
             title: "Americano Coffee",
-            author: "Mr. Matin Paul",
+            chef: "Mr. Matin Paul",
             price: 890
         },
         {
             _id: 4,
             img: "https://i.ibb.co/jgRT4Ns/2.png",
             title: "Black Coffee",
-            author: "Mr. Nibra Sweden",
+            chef: "Mr. Nibra Sweden",
             price: 799
         },
         {
             _id: 5,
             img: "https://i.ibb.co/cchNzkF/1.png",
             title: "Americano Coffee",
-            author: "Mr. Matin Paul",
+            chef: "Mr. Matin Paul",
             price: 890
         },
         {
             _id: 6,
             img: "https://i.ibb.co/jgRT4Ns/2.png",
             title: "Black Coffee",
-            author: "Mr. Nibra Sweden",
+            chef: "Mr. Nibra Sweden",
             price: 799
         },
     ]

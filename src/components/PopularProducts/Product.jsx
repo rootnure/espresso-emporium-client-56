@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 const Product = ({ product }) => {
-    const { img, title, author, price } = product;
+    const { img, title, chef, price } = product;
 
     return (
         <div className='bg-[#F5F4F188] flex gap-x-6 px-12 py-6 rounded-md'>
@@ -19,7 +19,7 @@ const Product = ({ product }) => {
                     </p>
                     <p className='text-lg'>
                         <span className='font-semibold'>Chef: </span>
-                        <span className='text-gray-500'>{author}</span>
+                        <span className='text-gray-500'>{chef}</span>
                     </p>
                     <p className='text-lg'>
                         <span className='font-semibold'>Price: </span>
@@ -29,7 +29,9 @@ const Product = ({ product }) => {
             </div>
             <div className='flex items-center w-1/12 justify-end'>
                 <div className='flex flex-col gap-y-4 text-white text-xl'>
-                    <button className='bg-[#D2B48C] border-2 border-[#D2B48C] hover:text-[#D2B48C] hover:bg-transparent rounded duration-150 p-1.5' title='View Details'><AiFillEye></AiFillEye></button>
+                    <Link to='/coffeeDetails'>
+                        <button className='bg-[#D2B48C] border-2 border-[#D2B48C] hover:text-[#D2B48C] hover:bg-transparent rounded duration-150 p-1.5' title='View Details'><AiFillEye></AiFillEye></button>
+                    </Link>
                     <Link to='/updateExisting'>
                         <button className='bg-[#3C393B] border-2 border-[#3C393B] hover:text-[#3C393B] hover:bg-transparent rounded duration-150 p-1.5' title='Edit/Update Information'><AiFillEdit></AiFillEdit></button>
                     </Link>
