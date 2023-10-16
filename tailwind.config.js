@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      'rancho': ["'Rancho', cursive"],
+      'raleway': ["'Raleway', 'sans-serif'"],
+    },
   },
   plugins: [require("daisyui")],
 }
