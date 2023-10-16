@@ -1,20 +1,24 @@
 import { Helmet } from "react-helmet-async";
 import { MdArrowBack } from "react-icons/md";
 import SectionHeader from "../../components/SectionHeader/SectionHeader";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 
 const UpdateExisting = () => {
 
+    const coffee = useLoaderData();
+
+    const { name: oldName, quantity: oldQuantity, chef: oldChef, supplier: oldSupplier, category: oldCategory, details: oldDetails, photo: oldPhoto, price: oldPrice } = coffee;
+
     const coffeeFormFields = [
-        { id: "updateCoffeeName", label: "Name", type: "text", defaultValue: "Americano Coffee", placeholder: "Enter coffee name" },
-        { id: "updateCoffeeQuantity", label: "Quantity", type: "number", defaultValue: "50", placeholder: "Enter coffee quantity" },
-        { id: "updateCoffeeChef", label: "Chef", type: "text", defaultValue: "Mr. Matin Paul", placeholder: "Enter coffee chef" },
-        { id: "updateCoffeeSupplier", label: "Supplier", type: "text", defaultValue: "Chappu Authorizer", placeholder: "Enter coffee supplier" },
-        { id: "updateCoffeeCategory", label: "Category", type: "text", defaultValue: "Americano", placeholder: "Enter coffee category" },
-        { id: "updateCoffeeDetails", label: "Details", type: "text", defaultValue: "Espresso with hot water", placeholder: "Enter coffee details" },
-        { id: "updateCoffeePhoto", label: "Photo", type: "text", defaultValue: "https://i.ibb.co/hB6Tp24/11.png", placeholder: "Enter coffee photo" },
-        { id: "updateCoffeePrice", label: "Price", type: "number", defaultValue: "890", placeholder: "Enter coffee price" }
+        { id: "updateCoffeeName", label: "Name", type: "text", defaultValue: oldName, placeholder: "Enter coffee name" },
+        { id: "updateCoffeeQuantity", label: "Quantity", type: "number", defaultValue: oldQuantity, placeholder: "Enter coffee quantity" },
+        { id: "updateCoffeeChef", label: "Chef", type: "text", defaultValue: oldChef, placeholder: "Enter coffee chef" },
+        { id: "updateCoffeeSupplier", label: "Supplier", type: "text", defaultValue: oldSupplier, placeholder: "Enter coffee supplier" },
+        { id: "updateCoffeeCategory", label: "Category", type: "text", defaultValue: oldCategory, placeholder: "Enter coffee category" },
+        { id: "updateCoffeeDetails", label: "Details", type: "text", defaultValue: oldDetails, placeholder: "Enter coffee details" },
+        { id: "updateCoffeePhoto", label: "Photo", type: "text", defaultValue: oldPhoto, placeholder: "Enter coffee photo" },
+        { id: "updateCoffeePrice", label: "Price", type: "number", defaultValue: oldPrice, placeholder: "Enter coffee price" }
     ]
 
     const handleSubmit = e => {
@@ -29,7 +33,8 @@ const UpdateExisting = () => {
         const photo = form.updateCoffeePhoto.value;
         const price = form.updateCoffeePrice.value;
         form.reset();
-        console.log({ name, quantity, chef, supplier, category, details, photo, price });
+        const updatedCoffee = { name, quantity, chef, supplier, category, details, photo, price }
+        console.log(updatedCoffee);
     }
 
 

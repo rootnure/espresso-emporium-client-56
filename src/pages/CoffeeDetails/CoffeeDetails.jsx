@@ -1,23 +1,14 @@
 import { Helmet } from "react-helmet-async";
 import { MdArrowBack } from "react-icons/md";
 import SectionHeader from "../../components/SectionHeader/SectionHeader";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 
 const CoffeeDetails = () => {
 
-    const coffee = {
-        name: "Hello",
-        chef: "Hello",
-        supplier: "Hello",
-        taste: "Hello",
-        category: "Hello",
-        details: "Hello",
-        photo: "https://i.ibb.co/gv92Rgc/6.png",
-        price: 890
-    }
+    const coffee = useLoaderData();
 
-    const { name, chef, supplier, taste, category, details, photo, price } = coffee;
+    const { name, quantity, chef, supplier, category, details, photo, price } = coffee;
 
     return (
         <>
@@ -41,9 +32,9 @@ const CoffeeDetails = () => {
                                 </div>
                                 <div className="space-y-2.5 mt-10 text-lg">
                                     <p><span className="font-bold">Name: </span><span>{name}</span></p>
+                                    <p><span className="font-bold">Quantity: </span><span>{quantity} Cups</span></p>
                                     <p><span className="font-bold">Chef: </span><span>{chef}</span></p>
                                     <p><span className="font-bold">Supplier: </span><span>{supplier}</span></p>
-                                    <p><span className="font-bold">Taste: </span><span>{taste}</span></p>
                                     <p><span className="font-bold">Category: </span><span>{category}</span></p>
                                     <p><span className="font-bold">Details: </span><span>{details}</span></p>
                                     <p><span className="font-bold">Price: </span><span>{price} Taka</span></p>

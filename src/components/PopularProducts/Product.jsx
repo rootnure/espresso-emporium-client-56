@@ -60,7 +60,7 @@ const Product = ({ product }) => {
             </div>
             <div className='flex items-center w-1/12 justify-end'>
                 <div className='flex flex-col gap-y-4 text-white text-xl'>
-                    <Link to={`/coffeeDetails:${_id}`}>
+                    <Link to={`/coffeeDetails/${_id}`}>
                         <button className='bg-[#D2B48C] border-2 border-[#D2B48C] hover:text-[#D2B48C] hover:bg-transparent rounded duration-150 p-1.5' title='View Details'><AiFillEye></AiFillEye></button>
                     </Link>
                     <Link to={`/updateExisting/${_id}`}>
