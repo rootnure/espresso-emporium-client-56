@@ -5,9 +5,20 @@ import { Link } from "react-router-dom";
 
 
 const Footer = () => {
+
+    const handleFooterFormSubmit = e => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const message = form.message.value;
+        form.reset();
+        console.log({ name, email, message });
+    }
+
     return (
         <>
-            <footer className="p-10 pt-36 bg-cover" style={{ backgroundImage: 'url("https://i.ibb.co/xCxM4js/13.jpg")' }}>
+            <footer className="p-10 pt-24 bg-cover" style={{ backgroundImage: 'url("https://i.ibb.co/xCxM4js/13.jpg")' }}>
                 <div className="container mx-auto px-20">
                     <img src="https://i.ibb.co/jV0kLgs/logo1.png" alt="Website Logo" className="w-20" />
                     <div className="text-[#1B1A1A] flex gap-20 mt-4">
@@ -34,12 +45,12 @@ const Footer = () => {
                                 <SectionHeader
                                     sectionTitle="Connect with Us" />
                             </div>
-                            <form className="space-y-5 mt-8">
+                            <form onSubmit={handleFooterFormSubmit} className="space-y-5 mt-8">
                                 <input className="w-full px-3 py-2 rounded hover:[box-shadow:_2px_2px_4px_#331A15BB,_-2px_-2px_4px_#331A15BB] duration-150" type="text" name="name" placeholder="Name" />
                                 <br />
                                 <input className="w-full px-3 py-2 rounded hover:[box-shadow:_2px_2px_4px_#331A15BB,_-2px_-2px_4px_#331A15BB] duration-150" type="email" name="email" placeholder="Email" />
                                 <br />
-                                <textarea className="w-full px-3 py-2 rounded hover:[box-shadow:_2px_2px_4px_#331A15BB,_-2px_-2px_4px_#331A15BB] duration-150" name="feedback" rows="4" placeholder="Message"></textarea>
+                                <textarea className="w-full px-3 py-2 rounded hover:[box-shadow:_2px_2px_4px_#331A15BB,_-2px_-2px_4px_#331A15BB] duration-150" rows="4" name="message" placeholder="Message"></textarea>
                                 <br />
                                 <button type="submit" className="px-6 py-1.5 border-2 hover:text-white border-[#331A15] hover:bg-[#331A15] duration-200 rounded-full font-semibold hover:font-normal font-rancho">Send Message</button>
                             </form>
