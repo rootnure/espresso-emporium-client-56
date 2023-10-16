@@ -11,7 +11,7 @@ const Home = () => {
             <Helmet>
                 <title>Home | Espresso Emporium</title>
             </Helmet>
-            <main>
+            <main className="my-28">
                 <Banner />
                 <BannerBottom />
                 <PopularProducts />

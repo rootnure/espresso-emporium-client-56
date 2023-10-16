@@ -15,9 +15,11 @@ const Instagram = () => {
 
     return (
         <section className="container mx-auto px-20">
-            <SectionHeader
-                sectionTop="Follow Us Now"
-                sectionTitle="Follow on Instagram"></SectionHeader>
+            <div className="text-center">
+                <SectionHeader
+                    sectionTop="Follow Us Now"
+                    sectionTitle="Follow on Instagram"></SectionHeader>
+            </div>
             <div className="grid grid-cols-4 gap-4 my-12">
                 {
                     instagramImages.map((image, idx) => <img key={idx} src={image} className="w-full" />)
