@@ -2,18 +2,19 @@ import { Helmet } from "react-helmet-async";
 import { MdArrowBack } from "react-icons/md";
 import SectionHeader from "../../components/SectionHeader/SectionHeader";
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 
 const AddNew = () => {
 
     const coffeeFormFields = [
         { id: "coffeeName", label: "Name", type: "text", defaultValue: "", placeholder: "Enter coffee name" },
+        { id: "coffeeQuantity", label: "Quantity", type: "number", defaultValue: "", placeholder: "Enter coffee quantity" },
         { id: "coffeeChef", label: "Chef", type: "text", defaultValue: "", placeholder: "Enter coffee chef" },
         { id: "coffeeSupplier", label: "Supplier", type: "text", defaultValue: "", placeholder: "Enter coffee supplier" },
-        { id: "coffeeTaste", label: "Taste", type: "text", defaultValue: "", placeholder: "Enter coffee taste" },
         { id: "coffeeCategory", label: "Category", type: "text", defaultValue: "", placeholder: "Enter coffee category" },
         { id: "coffeeDetails", label: "Details", type: "text", defaultValue: "", placeholder: "Enter coffee details" },
-        { id: "coffeePhoto", label: "Photo", type: "text", defaultValue: "", placeholder: "Enter coffee photo" },
+        { id: "coffeePhoto", label: "Photo URL", type: "text", defaultValue: "", placeholder: "Enter coffee photo url (Direct Link)" },
         { id: "coffeePrice", label: "Price", type: "number", defaultValue: "", placeholder: "Enter coffee price" }
     ]
 
@@ -21,15 +22,36 @@ const AddNew = () => {
         e.preventDefault();
         const form = e.target;
         const name = form.coffeeName.value;
+        const quantity = form.coffeeQuantity.value;
         const chef = form.coffeeChef.value;
         const supplier = form.coffeeSupplier.value;
-        const taste = form.coffeeTaste.value;
         const category = form.coffeeCategory.value;
         const details = form.coffeeDetails.value;
         const photo = form.coffeePhoto.value;
         const price = form.coffeePrice.value;
         form.reset();
-        console.log({ name, chef, supplier, taste, category, details, photo, price });
+        const newCoffee = { name, quantity, chef, supplier, category, details, photo, price }
+        console.log(newCoffee);
+
+        fetch('http://localhost:5000/coffee', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newCoffee),
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Congratulations!',
+                        text: 'Coffee added successfully.',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+            })
     }
 
 

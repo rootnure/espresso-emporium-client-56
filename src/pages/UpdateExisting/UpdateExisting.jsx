@@ -8,9 +8,9 @@ const UpdateExisting = () => {
 
     const coffeeFormFields = [
         { id: "updateCoffeeName", label: "Name", type: "text", defaultValue: "Americano Coffee", placeholder: "Enter coffee name" },
+        { id: "updateCoffeeQuantity", label: "Quantity", type: "number", defaultValue: "50", placeholder: "Enter coffee quantity" },
         { id: "updateCoffeeChef", label: "Chef", type: "text", defaultValue: "Mr. Matin Paul", placeholder: "Enter coffee chef" },
         { id: "updateCoffeeSupplier", label: "Supplier", type: "text", defaultValue: "Chappu Authorizer", placeholder: "Enter coffee supplier" },
-        { id: "updateCoffeeTaste", label: "Taste", type: "text", defaultValue: "Sweet and hot", placeholder: "Enter coffee taste" },
         { id: "updateCoffeeCategory", label: "Category", type: "text", defaultValue: "Americano", placeholder: "Enter coffee category" },
         { id: "updateCoffeeDetails", label: "Details", type: "text", defaultValue: "Espresso with hot water", placeholder: "Enter coffee details" },
         { id: "updateCoffeePhoto", label: "Photo", type: "text", defaultValue: "https://i.ibb.co/hB6Tp24/11.png", placeholder: "Enter coffee photo" },
@@ -21,15 +21,15 @@ const UpdateExisting = () => {
         e.preventDefault();
         const form = e.target;
         const name = form.updateCoffeeName.value;
+        const quantity = form.updateCoffeeQuantity.value;
         const chef = form.updateCoffeeChef.value;
         const supplier = form.updateCoffeeSupplier.value;
-        const taste = form.updateCoffeeTaste.value;
         const category = form.updateCoffeeCategory.value;
         const details = form.updateCoffeeDetails.value;
         const photo = form.updateCoffeePhoto.value;
         const price = form.updateCoffeePrice.value;
         form.reset();
-        console.log({ name, chef, supplier, taste, category, details, photo, price });
+        console.log({ name, quantity, chef, supplier, category, details, photo, price });
     }
 
 
