@@ -2,13 +2,14 @@ import { Helmet } from "react-helmet-async";
 import { MdArrowBack } from "react-icons/md";
 import SectionHeader from "../../components/SectionHeader/SectionHeader";
 import { Link, useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const UpdateExisting = () => {
 
     const coffee = useLoaderData();
 
-    const { name: oldName, quantity: oldQuantity, chef: oldChef, supplier: oldSupplier, category: oldCategory, details: oldDetails, photo: oldPhoto, price: oldPrice } = coffee;
+    const { _id, name: oldName, quantity: oldQuantity, chef: oldChef, supplier: oldSupplier, category: oldCategory, details: oldDetails, photo: oldPhoto, price: oldPrice } = coffee;
 
     const coffeeFormFields = [
         { id: "updateCoffeeName", label: "Name", type: "text", defaultValue: oldName, placeholder: "Enter coffee name" },
@@ -21,7 +22,7 @@ const UpdateExisting = () => {
         { id: "updateCoffeePrice", label: "Price", type: "number", defaultValue: oldPrice, placeholder: "Enter coffee price" }
     ]
 
-    const handleSubmit = e => {
+    const handleUpdate = e => {
         e.preventDefault();
         const form = e.target;
         const name = form.updateCoffeeName.value;
@@ -35,6 +36,26 @@ const UpdateExisting = () => {
         form.reset();
         const updatedCoffee = { name, quantity, chef, supplier, category, details, photo, price }
         console.log(updatedCoffee);
+
+        fetch(`http://localhost:5000/coffee/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedCoffee)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Coffee updated successfully.',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    })
+                }
+            })
     }
 
 
@@ -56,7 +77,7 @@ const UpdateExisting = () => {
                         </div>
 
                         {/* form */}
-                        <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-6">
+                        <form onSubmit={handleUpdate} className="grid grid-cols-2 gap-6">
                             {
                                 coffeeFormFields.map(field => <div
                                     key={field.id}

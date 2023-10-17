@@ -5,7 +5,7 @@ import Product from "./Product";
 import SectionHeader from "../SectionHeader/SectionHeader";
 
 
-const PopularProducts = ({ allCoffee }) => {
+const PopularProducts = ({ coffees, handleUpdateUIAfterDelete }) => {
     return (
         <section className="relative">
             <img src="https://i.ibb.co/txGbs6f/4.png" alt="aside mug image" className="absolute left-0 top-20 w-80 -z-10" />
@@ -21,9 +21,10 @@ const PopularProducts = ({ allCoffee }) => {
                 </div>
                 <div className="my-12 grid grid-cols-1 lg:grid-cols-2 gap-6 px-20">
                     {
-                        allCoffee.map(product => <Product
+                        coffees.map(product => <Product
                             key={product._id}
-                            product={product} />)
+                            product={product}
+                            handleUpdateUIAfterDelete={handleUpdateUIAfterDelete} />)
                     }
                 </div>
             </div>
@@ -32,7 +33,8 @@ const PopularProducts = ({ allCoffee }) => {
 };
 
 PopularProducts.propTypes = {
-    allCoffee: PropTypes.array.isRequired
+    coffees: PropTypes.array.isRequired,
+    handleUpdateUIAfterDelete: PropTypes.func.isRequired
 }
 
 export default PopularProducts;

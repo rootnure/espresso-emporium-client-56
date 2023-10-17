@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 
-const Product = ({ product }) => {
+const Product = ({ product, handleUpdateUIAfterDelete }) => {
     const { _id, photo, name, chef, price } = product;
 
     const handleDelete = _id => {
@@ -31,6 +31,7 @@ const Product = ({ product }) => {
                                 'Coffee has been deleted.',
                                 'success'
                             )
+                            handleUpdateUIAfterDelete(_id);
                         }
                     })
             }
@@ -77,7 +78,8 @@ const Product = ({ product }) => {
 };
 
 Product.propTypes = {
-    product: PropTypes.object.isRequired
+    product: PropTypes.object.isRequired,
+    handleUpdateUIAfterDelete: PropTypes.func.isRequired
 }
 
 export default Product;
